@@ -13,13 +13,20 @@ class MainContainer extends Component {
         total: 0,
         budget: 0
       };
+      this.submit = this.submit.bind(this);
+    }
+
+    submit(){
+      this.setState({name: document.getElementById('transactionName').value});
+      console.log(this.state.name);
     }
 
     render(){
       return (
         <div className = 'mainContainer'>
           <h1><center>Budget Shark</center></h1>
-          <InputsContainer />
+          <InputsContainer state={this.state} submit={this.submit}/>
+          <div>{this.state.name}</div>
           <DisplayContainer />
         </div>
       )

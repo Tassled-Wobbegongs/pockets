@@ -12,7 +12,7 @@ SET row_security = off;
 CREATE TABLE public.transactions (
 	"_id" serial NOT NULL,
 	"name" varchar NOT NULL,
-	"amount" varchar NOT NULL,
+	"amount" decimal(5, 2) NOT NULL,
 	"date" varchar,
 	"category_id" bigint,
 	CONSTRAINT "transactions_pk" PRIMARY KEY ("_id")
@@ -28,6 +28,7 @@ CREATE TABLE public.categories (
     OIDS=FALSE
 );
 
+
 ALTER TABLE public.transactions ADD CONSTRAINT "transactions_fk0" FOREIGN KEY ("category_id") REFERENCES public.categories("_id")
 
 INSERT INTO public.categories VALUES (1, 'test');
@@ -40,4 +41,4 @@ INSERT INTO public.categories VALUES (7, 'Drinks');
 INSERT INTO public.categories VALUES (8, 'Entertainment');
 INSERT INTO public.categories VALUES (9, 'Savings');
 INSERT INTO public.categories VALUES (10, 'Other');
-INSERT INTO public.transactions VALUES (1, 'Tarry transaction', '5', '10/16/2021', 1);
+INSERT INTO public.transactions VALUES (997, 'Tarry transaction', 5.52, '10/16/2021', 1);

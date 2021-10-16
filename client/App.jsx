@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NavBar from './components/navBar.jsx';
+import MainContainer from './containers/mainContainer.jsx';
 
 const App = () => {
     return (
         <div>
-            <h1>Hello Squirrel</h1>
-            <h3>From inside yo mama, which is bundled to yo mama</h3>
+            <NavBar />
+            <MainContainer />
         </div>
     )
 }

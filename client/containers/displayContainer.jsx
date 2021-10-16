@@ -15,8 +15,8 @@ class DisplayContainer extends Component {
 
     render(){
       return (
-        <div>
-          <h1>DISPLAY CONTAINER TEXT</h1>
+        <div className = "displayContainer">
+          <h3>October</h3>
           <InputsDisplay />
           <TotalsDisplay />
           <PieChart />

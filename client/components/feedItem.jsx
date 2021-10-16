@@ -10,8 +10,8 @@ class FeedItem extends Component {
 
     render(){
       return (
-        <div>
-          <h1>FEED ITEM</h1>
+        <div className="feedItem">
+          <p>Jack in the Box $20 Food</p>
         </div>
       )
     }

@@ -10,8 +10,17 @@ class TotalsDisplay extends Component {
 
     render(){
       return (
-        <div>
-          <h1>TOTALS DISPLAY</h1>
+        <div className = "totalsDisplay">
+          <p>
+              Budget:
+              <br></br>
+              Total Spent:
+              <br></br>
+              Remaining:
+              <br></br>
+              <input type="text" value="$$$"></input>
+              <button>Edit Budget</button>
+          </p>
         </div>
       )
     }

@@ -10,8 +10,12 @@ class InputsContainer extends Component {
 
     render(){
       return (
-        <div>
-          <h1>INPUTS CONTAINER TEXT</h1>
+        <div className = 'inputContainer'>
+          <h3>Spendings</h3>
+          <input type="text" value="name"/>
+          <input type="text" value="$$$"/>
+          <input type="text" value="category"/>
+          <button>Submit</button>
         </div>
       )
     }

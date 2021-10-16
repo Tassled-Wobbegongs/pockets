@@ -10,7 +10,7 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 
 //testing server
 app.get('/', (req, res) => {
-    console.log('AHHHHHHHH');
+    console.log('Hello Patrick');
   });
 
 

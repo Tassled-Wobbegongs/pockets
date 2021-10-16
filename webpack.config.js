@@ -2,7 +2,7 @@ const path = require('path');
 console.log(`this is currently on ${process.env.NODE_ENV} mode`);
 
 module.exports = {
-    entry: './client/app.jsx',
+    entry: './client/App.jsx',
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, 'public')

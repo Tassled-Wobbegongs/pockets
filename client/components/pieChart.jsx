@@ -10,8 +10,8 @@ class PieChart extends Component {
 
     render(){
       return (
-        <div>
-          <h1>INSERT CHART HERE</h1>
+        <div className = "pieChart">
+          <h3>Pie Chart</h3>
         </div>
       )
     }

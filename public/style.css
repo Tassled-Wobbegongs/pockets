@@ -1,0 +1,46 @@
+
+.mainContainer {
+    /* width: 800px; */
+    border: 1px solid black;
+    padding:  30px;
+    margin: 15px;
+    border-radius: 10px;
+}
+.inputContainer {
+    border: 1px solid black;
+    padding-bottom:  10px;
+    margin: 15px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.displayContainer {
+    border: 1px solid black;
+    padding-bottom:  10px;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+.feedItem {
+    border: 1px solid black;
+    padding-bottom:  10px;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+
+.totalsDisplay {
+    border: 1px solid black;
+    padding:  30px;
+    margin: 15px;
+    width: 180px;
+    border-radius: 10px;
+}
+
+.pieChart {
+    border: 1px solid black;
+    padding:  30px;
+    margin: 15px;
+    width: 180px;
+    border-radius: 10px;
+}

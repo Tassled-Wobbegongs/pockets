@@ -2,7 +2,7 @@ const path = require('path');
 console.log(`this is currently on ${process.env.NODE_ENV} mode`);
 
 module.exports = {
-    entry: './client/app.js',
+    entry: './client/App.jsx',
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, 'public')
@@ -11,7 +11,7 @@ module.exports = {
     module: {
         rules: [{
             loader: 'babel-loader',
-            test: /\.js$/,
+            test: /\.jsx?/,
             exclude: /node_modules/
         },
         {

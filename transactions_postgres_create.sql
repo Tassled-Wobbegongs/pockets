@@ -31,4 +31,13 @@ CREATE TABLE public.categories (
 ALTER TABLE public.transactions ADD CONSTRAINT "transactions_fk0" FOREIGN KEY ("category_id") REFERENCES public.categories("_id")
 
 INSERT INTO public.categories VALUES (1, 'test');
+INSERT INTO public.categories VALUES (2, 'Housing/Rent');
+INSERT INTO public.categories VALUES (3, 'Utilities');
+INSERT INTO public.categories VALUES (4, 'Gas');
+INSERT INTO public.categories VALUES (5, 'Groceries');
+INSERT INTO public.categories VALUES (6, 'Dining Out');
+INSERT INTO public.categories VALUES (7, 'Drinks');
+INSERT INTO public.categories VALUES (8, 'Entertainment');
+INSERT INTO public.categories VALUES (9, 'Savings');
+INSERT INTO public.categories VALUES (10, 'Other');
 INSERT INTO public.transactions VALUES (1, 'Tarry transaction', '5', '10/16/2021', 1);

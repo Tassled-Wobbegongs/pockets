@@ -110,6 +110,17 @@ button {
     box-shadow: 5px 5px 5px #C7C7C7;
 }
 
+.total{
+    display: flex;
+    border: 1px solid #3C5360;
+    background-color:  #EFEFEF;
+    padding: 5px 10px 5px 10px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #C7C7C7;
+    justify-content: center;
+}
+
 /* .transactionsDisplay {
     height: 500px;
     border: 1px solid black;

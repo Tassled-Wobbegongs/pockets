@@ -12,7 +12,7 @@ SET row_security = off;
 CREATE TABLE public.transactions (
 	"_id" serial NOT NULL,
 	"name" varchar NOT NULL,
-	"amount" decimal(5, 2) NOT NULL,
+	"amount" DECIMAL(19, 2) NOT NULL,
 	"date" varchar,
 	"category_id" bigint,
 	CONSTRAINT "transactions_pk" PRIMARY KEY ("_id")
@@ -41,4 +41,9 @@ INSERT INTO public.categories VALUES (7, 'Drinks');
 INSERT INTO public.categories VALUES (8, 'Entertainment');
 INSERT INTO public.categories VALUES (9, 'Savings');
 INSERT INTO public.categories VALUES (10, 'Other');
-INSERT INTO public.transactions VALUES (997, 'Tarry transaction', 5.52, '10/16/2021', 1);
+
+-- INSERT INTO public.transactions VALUES (999, 'idk', 123.45, '10/18/2021', 6);
+
+-- To Delete all transactions, uncomment delete and run command: 
+-- DELETE FROM public.transactions
+-- psql -d postgres://faojdvgu:rTPmS6Vk_r0HoleiSheciCMrXiQF409Y@fanny.db.elephantsql.com/faojdvgu -f transactions_postgres_create.sql

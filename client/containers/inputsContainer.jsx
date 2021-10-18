@@ -10,12 +10,6 @@ class InputsContainer extends Component {
       }
     }
 
-
-    // submit(){
-    //   this.setState({name: document.getElementById('transactionName').value});
-    //   console.log(this.state.name);
-    // }
-
     render(){
       return (
         <div className = 'inputContainer'>
@@ -24,7 +18,7 @@ class InputsContainer extends Component {
           <input type="text" className='input' id="transactionAmt" placeholder='Amount'/>
           <select name="Category" className='input' id="category">
             {/* <option value="1">test</option> */}
-            <option disabled selected value>Choose Category</option>
+            <option disabled selected value="1">Choose Category</option>
             <option value="2">Housing/Rent</option>
             <option value="3">Utilities</option>
             <option value="4">Gas</option>

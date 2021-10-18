@@ -14,6 +14,7 @@ class MainContainer extends Component {
         budget: 0
       };
       this.submit = this.submit.bind(this);
+
     }
 
     submit(){
@@ -38,6 +39,8 @@ class MainContainer extends Component {
         console.log('submit was clicked while category was still "choose category"');
       }
     }
+
+
 
     render(){
       return (

@@ -25,6 +25,23 @@ class FeedItem extends Component {
           console.log('error fetching transaction data', err);
         })
     }
+
+    delete(identification) {
+      return function () {
+        fetch('/api/transactions', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: identification.transaction_id,
+          })
+        })
+        .then(data => document.location.reload())
+        .catch(err => console.log(err));
+      }
+    }
+
     //renderRows helper function 
     renderRows() {
       const rows = [];
@@ -36,6 +53,7 @@ class FeedItem extends Component {
             <td className='item'>{transactions[i].name}</td>
             <td className='item'>{transactions[i].category}</td>
             <td className='item'>${transactions[i].amount}</td>
+            <button className='delete' id='submitButton' onClick={this.delete(transactions[i])}>X</button>
           </tr>
         )
       }

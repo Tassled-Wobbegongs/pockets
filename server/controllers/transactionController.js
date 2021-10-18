@@ -17,7 +17,7 @@ transactionController.addTransaction = (req, res, next) => {
     db.query(addTransQuery, values)
         .then(data => {
             // console.log('rows:', data.rows);
-            res.locals.data = data.rows; // might be data.rows
+            // res.locals.data = data.rows[0]; // might be data.rows
             return next();
         })
         .catch( err => {

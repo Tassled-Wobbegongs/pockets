@@ -5,7 +5,8 @@ class InputsDisplay extends Component {
     constructor(props){
       super(props);
       this.state = {
-
+        transactions: this.props.transactions,
+        total: this.props.total
       };
     }
 
@@ -13,7 +14,7 @@ class InputsDisplay extends Component {
       return (
         <div className='transactionsDisplay'>
           <h1></h1>
-          <FeedItem />
+          <FeedItem transactions={this.state.transactions} total={this.state.total} />
         </div>
       )
     }

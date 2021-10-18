@@ -13,6 +13,7 @@ class MainContainer extends Component {
       };
 
       this.submit = this.submit.bind(this);
+
     }
   
 
@@ -66,6 +67,8 @@ class MainContainer extends Component {
         console.log('submit was clicked while category was still "choose category"');
       }
     };
+
+
 
     render(){
       return (

@@ -80,6 +80,16 @@ button {
     box-shadow: -1px -1px -1px black;
 }
 
+.delete {
+    display: flex;
+    border: 1px solid #3C5360;
+    border-radius: 5px;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    right: 100px;
+}
+
 .input {
     border: 1px solid #3C5360;
     border-radius: 5px;

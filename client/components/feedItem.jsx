@@ -4,13 +4,41 @@ class FeedItem extends Component {
     constructor(props){
       super(props);
       this.state = {
-        transactions: [],
-        total: 0,
+        ...props
       };
     }
 
     
-    componentDidMount() {
+    componentDidUpdate(prevProps, prevState) {
+      // return this.onChange();
+      // console.log('prev props', prevProps);
+      // console.log('prev state', prevState);
+      console.log('current state', this.state);
+      console.log('current props', this.props);
+      if (this.props.transactions !== this.state.transactions) {
+        console.log('new transaction added');
+        let newTransactions;
+        let newTotal;
+        fetch('http://localhost:8080/api/transactions')
+          .then( response => response.json())
+          .then( data => {
+            console.log('received data', data);
+            newTransactions = data.data;
+            newTotal = data.total;
+            // this.setState({
+            //   transactions: newTransactions,
+            //   total: newTotal,
+            // })
+            })
+          .catch(err => {
+            console.log('error fetching transaction data', err);
+          })
+    // //   
+        
+      }
+    }
+
+    getData() {
       fetch('http://localhost:8080/api/transactions')
         .then( response => response.json())
         .then( data => {
@@ -19,11 +47,11 @@ class FeedItem extends Component {
             transactions: data.data,
             total: data.total
           });
-          console.log(this.state);
+          // console.log(this.state);
         })
         .catch(err => {
           console.log('error fetching transaction data', err);
-        })
+        });
     }
 
     delete(identification) {
@@ -40,12 +68,30 @@ class FeedItem extends Component {
         .then(data => document.location.reload())
         .catch(err => console.log(err));
       }
+    componentDidMount() {
+      this.getData();
+
+      // setInterval(this.getData(), 1000);
+        // fetch('http://localhost:8080/api/transactions')
+        //   .then( response => response.json())
+        //   .then( data => {
+        //     // console.log('received data', data);
+        //     this.setState({
+        //       transactions: data.data,
+        //       total: data.total
+        //     });
+        //     // console.log(this.state);
+        //   })
+        //   .catch(err => {
+        //     console.log('error fetching transaction data', err);
+        //   });
     }
 
     //renderRows helper function 
     renderRows() {
       const rows = [];
       const transactions = this.state.transactions
+      console.log(transactions)
       for (let i = 0; i < transactions.length; i++) {
         rows.push(
           <tr className="row" key={i}>

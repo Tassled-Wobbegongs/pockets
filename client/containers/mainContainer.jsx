@@ -4,18 +4,35 @@ import DisplayContainer from './displayContainer.jsx';
 
 
 class MainContainer extends Component {
-    constructor(props){
+    constructor(props) {
       super(props);
+
       this.state = {
-        name: '',
-        amount: 0,
-        category: '',
+        transactions: [],
         total: 0,
-        budget: 0
       };
+
       this.submit = this.submit.bind(this);
 
     }
+  
+
+  //change this to componentDidUpdate
+  // componentDidUpdate() {
+  //   fetch('http://localhost:8080/api/transactions')
+  //     .then( response => response.json())
+  //     .then( data => {
+  //       // console.log('received data', data);
+  //       this.setState({
+  //         transactions: data.data,
+  //         total: data.total
+  //       });
+  //       console.log(this.state);
+  //     })
+  //     .catch(err => {
+  //       console.log('error fetching transaction data', err);
+  //     })
+  // };
 
     submit(){
       console.log('submit activated')
@@ -32,13 +49,24 @@ class MainContainer extends Component {
             category_id: document.getElementById('category').value
           })
         })
-        .then(data => console.log(data))
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          // console.log(this.state);
+          const transactions = data.data;
+          // // transactions.push(data);
+          this.setState({
+            transactions: transactions,
+            total: data.total
+          });
+          document.location.reload();
+        })
         .catch(err => console.log(err));
       }
       else{
         console.log('submit was clicked while category was still "choose category"');
       }
-    }
+    };
 
 
 
@@ -47,10 +75,10 @@ class MainContainer extends Component {
         <div className = 'mainContainer'>
           <h1><center>Pockets</center></h1>
           <InputsContainer state={this.state} submit={this.submit}/>
-          <DisplayContainer />
+          <DisplayContainer transactions={this.state.transactions} total={this.state.total} />
         </div>
       )
-    }
+    };
 }
 
 export default MainContainer;

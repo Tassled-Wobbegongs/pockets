@@ -29,7 +29,7 @@ class InputsContainer extends Component {
             <option value="9">Savings</option>
             <option value="10">Other</option>
           </select>
-          <button onClick={this.props.submit}>Add Transaction</button>
+          <button onClick={this.props.submit} id="submitButton">Add Transaction</button>
         </div>
       )
     }

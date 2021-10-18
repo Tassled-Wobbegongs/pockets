@@ -58,8 +58,7 @@ class MainContainer extends Component {
             transactions: transactions,
             total: data.total
           });
-          console.log(this.state);
-          // console.log(data);
+          document.location.reload();
         })
         .catch(err => console.log(err));
       }

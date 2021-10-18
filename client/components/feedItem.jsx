@@ -4,8 +4,42 @@ class FeedItem extends Component {
     constructor(props){
       super(props);
       this.state = {
-
+        transactions: [],
+        total: 0,
       };
+    }
+
+    
+    componentDidMount() {
+      fetch('http://localhost:8080/api/transactions')
+        .then( response => response.json())
+        .then( data => {
+          // console.log('received data', data);
+          this.setState({
+            transactions: data.data,
+            total: data.total
+          });
+          console.log(this.state);
+        })
+        .catch(err => {
+          console.log('error fetching transaction data', err);
+        })
+    }
+    //renderRows helper function 
+    renderRows() {
+      const rows = [];
+      const transactions = this.state.transactions
+      for (let i = 0; i < transactions.length; i++) {
+        rows.push(
+          <tr className="row" key={i}>
+            <td className='item'>{transactions[i].date}</td>
+            <td className='item'>{transactions[i].name}</td>
+            <td className='item'>{transactions[i].category}</td>
+            <td className='item'>${transactions[i].amount}</td>
+          </tr>
+        )
+      }
+      return rows;
     }
 
     render(){
@@ -14,23 +48,12 @@ class FeedItem extends Component {
           <div className="transactionTable">
             <table className="transactions">
               <tr className="row">
-                <th>Date</th>
-                <th>Transaction</th>
-                <th>Category</th>
-                <th>Amount</th>
+                <th className='item'>Date</th>
+                <th className='item'>Transaction</th>
+                <th className='item'>Category</th>
+                <th className='item'>Amount</th>
               </tr>
-              <tr className="row">
-                <td>10/16/2021</td>
-                <td>Starbucks Coffee</td>
-                <td>Drinks</td>
-                <td>$5.50</td>
-              </tr>
-              <tr className="row">
-                <td>10/16/2021</td>
-                <td>Chipotle</td>
-                <td>Dining Out</td>
-                <td>$10.50</td>
-              </tr>
+              {this.renderRows()}
             </table> 
           </div>
         </div>

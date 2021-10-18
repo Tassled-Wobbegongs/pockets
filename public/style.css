@@ -11,20 +11,32 @@
     box-shadow: 5px 5px 5px #D0C3C3;
 } */
 
-table.transactions td tr {
+/* table.transactions td tr {
     margin: 12px 12px 12px 12px;
     padding: 12px 12px 12px 12px;
-} 
+}  */
 
-/* table.transactions {
-    padding: 0px;
-    margin: 0px;
-} */
+table.transactions {
+    display: flex;
+    flex-direction: column;
+}
 .row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
+}
 
+td {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.item {
+    display: flex;
+    flex-basis: 15%;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 button {

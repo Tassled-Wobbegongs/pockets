@@ -10,6 +10,8 @@ class DisplayContainer extends Component {
     constructor(props){
       super(props);
       this.state = {
+        transactions: this.props.transactions,
+        total: this.props.total
       };
     }
 
@@ -17,6 +19,7 @@ class DisplayContainer extends Component {
       return (
         <div className = "displayContainer">
           <h3>October Spending:</h3>
+          <InputsDisplay transactions={this.state.transactions} total={this.state.total} />
           <InputsDisplay />
           <Total />
           <div id="chartContainer">

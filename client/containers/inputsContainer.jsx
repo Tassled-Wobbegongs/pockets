@@ -4,9 +4,11 @@ class InputsContainer extends Component {
     constructor(props){
       super(props);
       this.state = {
-        name: this.props.name,
-        amount: this.props.amount,
-        category: this.props.category
+        // transactions: this.props.transactions,
+        // total: this.props.total,
+        // name: this.props.name,
+        // amount: this.props.amount,
+        // category: this.props.category
       }
     }
 

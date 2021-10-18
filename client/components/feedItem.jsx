@@ -67,7 +67,8 @@ class FeedItem extends Component {
         })
         .then(data => document.location.reload())
         .catch(err => console.log(err));
-      }
+      };
+    }
     componentDidMount() {
       this.getData();
 

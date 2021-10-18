@@ -20,11 +20,10 @@ table.transactions {
     display: flex;
     flex-direction: column;
 }
+
 .row {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    
 }
 
 td {
@@ -39,6 +38,20 @@ td {
     flex-shrink: 0;
 }
 
+.headerRow {
+    display:flex;
+    justify-content: space-between;
+    margin-right: 12%;
+    margin-left: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.transactionTable {
+    overflow:scroll;
+    height: 430px;
+}
 button {
     color: #AEBAB1;
     font-family: 'Roboto', sans-serif;   
@@ -53,19 +66,40 @@ button {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
-    box-shadow: 2px 2px 2px 1px #C7C7C7;
+    box-shadow: 1px 1px 1px black;
+    height: 25px;
     
 }
 
+#submitButton:hover {
+    background-color: #5473869a;
+}
+
+#submitButton:active {
+    outline: 1px solid black;
+    box-shadow: -1px -1px -1px black;
+}
+
 .input {
-    padding: 5px 10px;
     border: 1px solid #3C5360;
     border-radius: 5px;
+    width: 200px;
+    height: 24px;
 }
+
+#category {
+    height: 28px;
+}
+
 .inputContainer {
+    display:flex;
+    justify-content: space-around;
+
+    padding-right: 50px;
     border: 1px solid #3C5360;
     background-color: #E7E7E7;
-    padding-bottom:  18px;
+    padding-bottom:  10px;
+    padding-top: 20px;
     margin: 15px;
     text-align: center;
     border-radius: 10px;
@@ -81,13 +115,25 @@ button {
     box-shadow: 5px 5px 5px #C7C7C7;
 }
 
+.transactionsDisplay {
+    height: 500px;
+    border: 1px solid black;
+    background-color:#E7E7E7;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 8px 3px #a89d9d;
+}
+
 .feedItem {
     border: 1px solid #3C5360;
     background-color:  #EFEFEF;
     padding: 5px 10px 5px 10px;
     margin: 15px;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px #C7C7C7;
+    box-shadow: 0px 0px 5px 3px #bdbdbd;
 }
 
 .totalsDisplay {
@@ -109,17 +155,6 @@ button {
     border-radius: 10px;
     box-shadow: 5px 5px 5px #C7C7C7;
 }
-
-/* .transactionsDisplay {
-    height: 500px;
-    border: 1px solid black;
-    background-color:#E7E7E7;
-    padding: 50px;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    box-shadow: 5px 5px 5px #D0C3C3;
-} */
 
 #chartContainer {
     display: flex;

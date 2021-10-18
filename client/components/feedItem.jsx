@@ -12,23 +12,23 @@ class FeedItem extends Component {
     
     componentDidUpdate(prevProps, prevState) {
       // return this.onChange();
-      if (prevState.transactions !== this.state.transasctions) {
-        console.log('new transaction added');
-        // return this.onChange();
-      }
-    //     fetch('http://localhost:8080/api/transactions')
-    //       .then( response => response.json())
-    //       .then( data => {
-    //         // console.log('received data', data);
-    //         this.setState({
-    //           transactions: data.data,
-    //           total: data.total
-    //         });
-    //         // console.log(this.state);
-    //       })
-    //       .catch(err => {
-    //         console.log('error fetching transaction data', err);
-    //       })
+      // if (prevState.transactions !== this.state.transasctions) {
+      //   console.log('new transaction added');
+      //   // return this.onChange();
+      // }
+        // fetch('http://localhost:8080/api/transactions')
+        //   .then( response => response.json())
+        //   .then( data => {
+        //     // console.log('received data', data);
+        //     this.setState({
+        //       transactions: data.data,
+        //       total: data.total
+        //     });
+        //     // console.log(this.state);
+        //   })
+        //   .catch(err => {
+        //     console.log('error fetching transaction data', err);
+        //   })
     //   
     }
 
@@ -62,8 +62,8 @@ class FeedItem extends Component {
           .catch(err => {
             console.log('error fetching transaction data', err);
           });
-      
     }
+    
     //renderRows helper function 
     renderRows() {
       const rows = [];

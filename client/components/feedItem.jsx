@@ -11,8 +11,30 @@ class FeedItem extends Component {
     render(){
       return (
         <div className="feedItem">
-          <p>Jack in the Box $20 Food</p>
+          <div className="transactionTable">
+            <table className="transactions">
+              <tr className="row">
+                <th>Date</th>
+                <th>Transaction</th>
+                <th>Category</th>
+                <th>Amount</th>
+              </tr>
+              <tr className="row">
+                <td>10/16/2021</td>
+                <td>Starbucks Coffee</td>
+                <td>Drinks</td>
+                <td>$5.50</td>
+              </tr>
+              <tr className="row">
+                <td>10/16/2021</td>
+                <td>Chipotle</td>
+                <td>Dining Out</td>
+                <td>$10.50</td>
+              </tr>
+            </table> 
+          </div>
         </div>
+        
       )
     }
 }

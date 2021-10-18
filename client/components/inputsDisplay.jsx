@@ -11,7 +11,7 @@ class InputsDisplay extends Component {
 
     render(){
       return (
-        <div>
+        <div class='transactionsDisplay'>
           <h1></h1>
           <FeedItem />
         </div>

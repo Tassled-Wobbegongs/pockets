@@ -19,11 +19,12 @@ class InputsContainer extends Component {
     render(){
       return (
         <div className = 'inputContainer'>
-          <h3>Spendings</h3>
-          <input type="text" id="transactionName"/>
-          <input type="text" id="transactionAmt"/>
-          <select name="Category" id="category">
-            <option value="1">test</option>
+          <h3></h3>
+          <input type="text" className='input' id="transactionName" placeholder='Transaction'/>
+          <input type="text" className='input' id="transactionAmt" placeholder='Amount'/>
+          <select name="Category" className='input' id="category">
+            {/* <option value="1">test</option> */}
+            <option disabled selected value>Choose Category</option>
             <option value="2">Housing/Rent</option>
             <option value="3">Utilities</option>
             <option value="4">Gas</option>
@@ -34,7 +35,7 @@ class InputsContainer extends Component {
             <option value="9">Savings</option>
             <option value="10">Other</option>
           </select>
-          <button onClick={this.props.submit}>Submit</button>
+          <button onClick={this.props.submit}>Add Transaction</button>
         </div>
       )
     }

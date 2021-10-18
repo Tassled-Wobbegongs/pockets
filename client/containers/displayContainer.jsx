@@ -16,10 +16,12 @@ class DisplayContainer extends Component {
     render(){
       return (
         <div className = "displayContainer">
-          <h3>October</h3>
+          <h3>October Spending:</h3>
           <InputsDisplay />
-          <TotalsDisplay />
-          <PieChart />
+          <div id="chartContainer">
+            <TotalsDisplay />
+            <PieChart />
+          </div>
         </div>
       )
     }

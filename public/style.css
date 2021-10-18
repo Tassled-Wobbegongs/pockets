@@ -1,46 +1,159 @@
+/* * {
+    box-sizing: border-box;
+} */
 
-.mainContainer {
-    /* width: 800px; */
+/* .mainContainer {
     border: 1px solid black;
+    background-color: #F0EBEB;
     padding:  30px;
     margin: 15px;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #D0C3C3;
+} */
+
+table.transactions td tr {
+    margin: 12px 12px 12px 12px;
+    padding: 12px 12px 12px 12px;
+} 
+
+/* table.transactions {
+    padding: 0px;
+    margin: 0px;
+} */
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+button {
+    color: #AEBAB1;
+    font-family: 'Roboto', sans-serif;   
+    font-variant: small-caps;
+    border-radius: 5px;
+	border: 1px solid #3C5360;
+	background-color: #547386;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 10px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+    box-shadow: 2px 2px 2px 1px #C7C7C7;
+    
+}
+.input {
+    padding: 5px 10px;
+    border: 1px solid #3C5360;
+    border-radius: 5px;
 }
 .inputContainer {
-    border: 1px solid black;
-    padding-bottom:  10px;
+    border: 1px solid #3C5360;
+    background-color: #E7E7E7;
+    padding-bottom:  18px;
     margin: 15px;
     text-align: center;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #C7C7C7;
 }
 
 .displayContainer {
-    border: 1px solid black;
-    padding-bottom:  10px;
+    border: 1px solid #3C5360;
+    background-color: #E7E7E7;
+    padding: 5px 10px 5px 10px;
     margin: 15px;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #C7C7C7;
 }
 
 .feedItem {
-    border: 1px solid black;
-    padding-bottom:  10px;
+    border: 1px solid #3C5360;
+    background-color:  #EFEFEF;
+    padding: 5px 10px 5px 10px;
     margin: 15px;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #C7C7C7;
 }
-
 
 .totalsDisplay {
-    border: 1px solid black;
-    padding:  30px;
+    border: 1px solid #3C5360;
+    background-color: #EFEFEF;
+    padding: 5px 10px 5px 10px;
     margin: 15px;
-    width: 180px;
+    width: 200px;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #C7C7C7;
 }
 
-.pieChart {
-    border: 1px solid black;
-    padding:  30px;
+.pieChartContainer {
+    border: 1px solid #3C5360;
+    background-color: #EFEFEF;
+    padding:  25px;
     margin: 15px;
-    width: 180px;
+    width: 500px;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #C7C7C7;
 }
+
+/* .transactionsDisplay {
+    height: 500px;
+    border: 1px solid black;
+    background-color:#E7E7E7;
+    padding: 50px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 5px 5px 5px #D0C3C3;
+} */
+
+#chartContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color:#E7E7E7;
+}
+
+h1 {
+    font-family: 'Ephesis', cursive;
+    font-size: 55px;
+    color: #547386;
+    margin: 12px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #C7C7C7;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #547386;
+    text-align: center; 
+}
+
+nav li {
+  display: inline-block; 
+  width: 20%; 
+  margin-right: -4px;
+}
+
+nav a {
+  display: block; 
+  text-decoration: none; 
+}
+
+nav a {
+  font-family: 'Roboto', sans-serif;
+  height: 40%; 
+  line-height: 40%; 
+  color: white;
+}
+
+nav a:hover {
+    color: #C7C7C7;
+  }

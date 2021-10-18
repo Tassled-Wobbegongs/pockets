@@ -24,7 +24,7 @@ class MainContainer extends Component {
     render(){
       return (
         <div className = 'mainContainer'>
-          <h1><center>Budget Shark</center></h1>
+          <h1><center>Pockets</center></h1>
           <InputsContainer state={this.state} submit={this.submit}/>
           <div>{this.state.name}</div>
           <DisplayContainer />

@@ -25,7 +25,7 @@ class TotalsDisplay extends Component {
               <br></br>
               $10,000
               <br></br>
-              <button>Edit Budget</button>
+              <button id="submitButton">Edit Budget</button>
           </p>
           </center>
         </div>

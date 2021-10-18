@@ -17,8 +17,26 @@ class MainContainer extends Component {
     }
 
     submit(){
-      this.setState({name: document.getElementById('transactionName').value});
-      console.log(this.state.name);
+      console.log('submit activated')
+      if(document.getElementById('category').value !== "1"){
+        fetch('/api/transactions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: document.getElementById('transactionName').value,
+            amount: document.getElementById('transactionAmt').value,
+            date: new Date().toLocaleDateString(),
+            category_id: document.getElementById('category').value
+          })
+        })
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+      }
+      else{
+        console.log('submit was clicked while category was still "choose category"');
+      }
     }
 
     render(){
@@ -26,7 +44,6 @@ class MainContainer extends Component {
         <div className = 'mainContainer'>
           <h1><center>Pockets</center></h1>
           <InputsContainer state={this.state} submit={this.submit}/>
-          <div>{this.state.name}</div>
           <DisplayContainer />
         </div>
       )

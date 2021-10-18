@@ -84,20 +84,28 @@ class FeedItem extends Component {
 
     render(){
       return (
+        <>
+        <div className="headerRow">
+            <span className='header'>Date</span>
+            <span className='header'>Transaction</span>
+            <span className='header' >Category</span>
+            <span className='header'>Amount</span>
+        </div>
         <div className="feedItem">
+          
           <div className="transactionTable">
             <table className="transactions">
-              <tr className="row">
-                <th className='item'>Date</th>
-                <th className='item'>Transaction</th>
-                <th className='item'>Category</th>
-                <th className='item'>Amount</th>
-              </tr>
+              {/* <tr className="row">
+                <th className='item' id="itemHeader">Date</th>
+                <th className='item' id="itemHeader">Transaction</th>
+                <th className='item' id="itemHeader">Category</th>
+                <th className='item' id="itemHeader">Amount</th>
+              </tr> */}
               {this.renderRows()}
             </table> 
           </div>
         </div>
-        
+        </>
       )
     }
 }

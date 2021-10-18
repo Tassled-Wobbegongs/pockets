@@ -11,7 +11,7 @@ transactionController.addTransaction = (req, res, next) => {
     const addTransQuery = `INSERT INTO public.transactions (name, amount, date, category_id) VALUES ($1, $2, $3, $4) RETURNING *`; 
     const values = [req.body.name, req.body.amount, req.body.date, req.body.category_id]
     // console.log(addTransQuery);
-    console.log(typeof req.body.amount);
+    console.log('amount type: ', typeof req.body.amount);
     // console.log(values);
 
     db.query(addTransQuery, values)

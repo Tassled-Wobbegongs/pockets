@@ -17,8 +17,11 @@ module.exports = {
         {
             test: /\.s[ac]ss$/i,
             use: ['style-loader', 'css-loader', 'sass-loader']
-          },
-    ]
+        },
+        {
+            test: /\.png$/i,
+            type: 'asset/resource'
+        }]
     },
     devServer: {
         static: path.join(__dirname, 'public'),

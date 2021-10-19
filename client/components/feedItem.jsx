@@ -8,7 +8,6 @@ class FeedItem extends Component {
       };
     }
 
-    
     componentDidUpdate(prevProps, prevState) {
       // return this.onChange();
       // console.log('prev props', prevProps);
@@ -33,8 +32,6 @@ class FeedItem extends Component {
           .catch(err => {
             console.log('error fetching transaction data', err);
           })
-    // //   
-        
       }
     }
 
@@ -118,7 +115,6 @@ class FeedItem extends Component {
             <span className='header'>Amount</span>
         </div>
         <div className="feedItem">
-          
           <div className="transactionTable">
             <table className="transactions">
               {/* <tr className="row">
@@ -134,6 +130,6 @@ class FeedItem extends Component {
         </>
       )
     }
-}
+  }
 
 export default FeedItem;

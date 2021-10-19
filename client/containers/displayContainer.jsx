@@ -22,7 +22,7 @@ class DisplayContainer extends Component {
           <InputsDisplay transactions={this.state.transactions} total={this.state.total} />
           <Total />
           <div id="chartContainer">
-            <TotalsDisplay />
+            <TotalsDisplay total={this.state.total}/>
             <PieChart />
           </div>
         </div>

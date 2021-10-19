@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import InputsContainer from './inputsContainer.jsx';
 import DisplayContainer from './displayContainer.jsx';
 
+import logo from '../../Pockets-logo.png';
+
 
 class MainContainer extends Component {
     constructor(props) {
@@ -73,7 +75,7 @@ class MainContainer extends Component {
     render(){
       return (
         <div className = 'mainContainer'>
-          <h1><center>Pockets</center></h1>
+          <img src={logo} id="logo"/>
           <InputsContainer state={this.state} submit={this.submit}/>
           <DisplayContainer transactions={this.state.transactions} total={this.state.total} />
         </div>

@@ -69,6 +69,7 @@ class FeedItem extends Component {
         .catch(err => console.log(err));
       };
     }
+
     componentDidMount() {
       this.getData();
 
@@ -100,7 +101,7 @@ class FeedItem extends Component {
             <td className='item'>{transactions[i].name}</td>
             <td className='item'>{transactions[i].category}</td>
             <td className='item'>${transactions[i].amount}</td>
-            <button className='delete' id='submitButton' onClick={this.delete(transactions[i])}>X</button>
+            <button className='delete' id='editButton' onClick={this.delete(transactions[i])}>X</button>
           </tr>
         )
       }

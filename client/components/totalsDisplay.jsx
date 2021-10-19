@@ -4,30 +4,48 @@ class TotalsDisplay extends Component {
     constructor(props){
       super(props);
       this.state = {
-
+        total: this.props.total,
+        budget: 5000
       };
+    }
+
+    componentDidMount() {
+      fetch('http://localhost:8080/api/transactions')
+        .then( response => response.json())
+        .then( data => {
+          // console.log('received data', data);
+          this.setState({
+            transactions: data.data,
+            total: data.total
+          });
+          console.log(this.state);
+        })
+        .catch(err => {
+          console.log('error fetching transaction data', err);
+        })
     }
 
     render(){
       return (
         <div className = "totalsDisplay">
-          <center>
-          <p>
-              Budget
+          {/* <center> */}
+            <div>
+              Budget:
               <br></br>
-              $20,000
+              ${this.state.budget}
+            </div>
+            <div>
+              Total Spent:
               <br></br>
-              Total Spent
+              <center>${this.state.total}</center>
+            </div>
+            <div>
+              Remaining:
               <br></br>
-              $10,000
-              <br></br>
-              Remaining
-              <br></br>
-              $10,000
-              <br></br>
-              <button id="submitButton">Edit Budget</button>
-          </p>
-          </center>
+              <center>${this.state.budget - this.state.total}</center>
+            </div>
+            <button id="editButton">Edit Budget</button>
+          {/* </center> */}
         </div>
       )
     }

@@ -8,21 +8,20 @@ class FeedItem extends Component {
       };
     }
 
-    
     componentDidUpdate(prevProps, prevState) {
       // return this.onChange();
       // console.log('prev props', prevProps);
       // console.log('prev state', prevState);
-      console.log('current state', this.state);
-      console.log('current props', this.props);
+      // console.log('current state', this.state);
+      // console.log('current props', this.props);
       if (this.props.transactions !== this.state.transactions) {
-        console.log('new transaction added');
+        // console.log('new transaction added');
         let newTransactions;
         let newTotal;
         fetch('http://localhost:8080/api/transactions')
           .then( response => response.json())
           .then( data => {
-            console.log('received data', data);
+            // console.log('received data', data);
             newTransactions = data.data;
             newTotal = data.total;
             // this.setState({
@@ -33,8 +32,6 @@ class FeedItem extends Component {
           .catch(err => {
             console.log('error fetching transaction data', err);
           })
-    // //   
-        
       }
     }
 
@@ -67,7 +64,7 @@ class FeedItem extends Component {
         })
         .then(data => document.location.reload())
         .catch(err => console.log(err));
-      };
+      }
     }
 
     componentDidMount() {
@@ -93,7 +90,7 @@ class FeedItem extends Component {
     renderRows() {
       const rows = [];
       const transactions = this.state.transactions
-      console.log(transactions)
+      // console.log(transactions)
       for (let i = 0; i < transactions.length; i++) {
         rows.push(
           <tr className="row" key={i}>
@@ -118,7 +115,6 @@ class FeedItem extends Component {
             <span className='header'>Amount</span>
         </div>
         <div className="feedItem">
-          
           <div className="transactionTable">
             <table className="transactions">
               {/* <tr className="row">
@@ -134,6 +130,6 @@ class FeedItem extends Component {
         </>
       )
     }
-}
+  }
 
 export default FeedItem;

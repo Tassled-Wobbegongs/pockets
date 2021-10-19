@@ -53,7 +53,7 @@ class MainContainer extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          // console.log(data);
           // console.log(this.state);
           const transactions = data.data;
           // // transactions.push(data);

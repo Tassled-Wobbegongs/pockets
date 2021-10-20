@@ -32,12 +32,12 @@ class TotalsDisplay extends Component {
             <div>
               Budget:
               <br></br>
-              ${this.state.budget}
+              ${Number(this.state.budget).toFixed(2)}
             </div>
             <div>
               Total Spent:
               <br></br>
-              <center>${this.state.total}</center>
+              <center>${Number(this.state.total).toFixed(2)}</center>
             </div>
             <div>
               Remaining:

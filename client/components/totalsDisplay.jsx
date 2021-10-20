@@ -42,7 +42,7 @@ class TotalsDisplay extends Component {
             <div>
               Remaining:
               <br></br>
-              <center>${this.state.budget - this.state.total}</center>
+              <center>${Number(this.state.budget - this.state.total).toFixed(2)}</center>
             </div>
             <button id="editButton">Edit Budget</button>
           {/* </center> */}

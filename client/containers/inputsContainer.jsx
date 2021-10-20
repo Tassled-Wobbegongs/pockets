@@ -1,40 +1,45 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+// import DisplayContainer from './displayContainer.jsx';
 
-class InputsContainer extends Component {
-    constructor(props){
-      super(props);
-      this.state = {
-        // transactions: this.props.transactions,
-        // total: this.props.total,
-        // name: this.props.name,
-        // amount: this.props.amount,
-        // category: this.props.category
-      }
-    }
+// class InputsContainer extends Component {
+//     constructor(props){
+//       super(props);
+//       this.state = {
+//         // transactions: this.props.transactions,
+//         // total: this.props.total,
+//         // name: this.props.name,
+//         // amount: this.props.amount,
+//         // category: this.props.category
+//       }
+//     }
 
-    render(){
-      return (
-        <div className = 'inputContainer'>
-          <h3></h3>
-          <input type="text" className='input' id="transactionName" placeholder='Transaction'/>
-          <input type="text" className='input' id="transactionAmt" placeholder='Amount'/>
-          <select name="Category" className='input' id="category">
-            {/* <option value="1">test</option> */}
-            <option disabled selected value="1">Choose Category</option>
-            <option value="2">Housing/Rent</option>
-            <option value="3">Utilities</option>
-            <option value="4">Gas</option>
-            <option value="5">Groceries</option>
-            <option value="6">Dining Out</option>
-            <option value="7 ">Drinks</option>
-            <option value="8">Entertainment</option>
-            <option value="9">Savings</option>
-            <option value="10">Other</option>
-          </select>
-          <button onClick={this.props.submit} id="submitButton">Add Transaction</button>
-        </div>
-      )
-    }
+const InputsContainer = props => {
+  // whatever we want in the state
+  // console.log("logging props property in inputsContainer: ", props.submit)
+  const [submit, setSubmit] = useState(props.submit);
+
+  return (
+    <div className = 'inputContainer'>
+      <h3></h3>
+      <input type="text" className='input' id="transactionName" placeholder='Transaction'/>
+      <input type="text" className='input' id="transactionAmt" placeholder='Amount'/>
+      <select name="Category" className='input' id="category">
+        {/* <option value="1">test</option> */}
+        <option disabled selected value="1">Choose Category</option>
+        <option value="2">Housing/Rent</option>
+        <option value="3">Utilities</option>
+        <option value="4">Gas</option>
+        <option value="5">Groceries</option>
+        <option value="6">Dining Out</option>
+        <option value="7 ">Drinks</option>
+        <option value="8">Entertainment</option>
+        <option value="9">Savings</option>
+        <option value="10">Other</option>
+      </select>
+      <button onClick={submit} id="submitButton">Add Transaction</button>
+    </div>
+  );
 }
+
 
 export default InputsContainer;

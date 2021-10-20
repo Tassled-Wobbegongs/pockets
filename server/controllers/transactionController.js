@@ -46,7 +46,7 @@ transactionController.getTransaction = (req, res, next) => {
 transactionController.deleteTransaction = (req, res, next) => {
     const deleteQuery = 
         'DELETE FROM transactions \
-        WHERE transaction_id = $1';
+        WHERE _id = $1';
     const params = [req.body.id];
     
     db.query(deleteQuery, params)

@@ -59,7 +59,7 @@ class FeedItem extends Component {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            id: identification.transaction_id,
+            id: identification._id,
           })
         })
         .then(data => document.location.reload())
@@ -98,6 +98,7 @@ class FeedItem extends Component {
             <td className='item'>{transactions[i].name}</td>
             <td className='item'>{transactions[i].category}</td>
             <td className='item'>${transactions[i].amount}</td>
+            {/* cat-snake todo: all delete buttons should have unique ids */}
             <button className='delete' id='editButton' onClick={this.delete(transactions[i])}>X</button>
           </tr>
         )

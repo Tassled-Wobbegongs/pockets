@@ -56,12 +56,14 @@ class MainContainer extends Component {
           // console.log(data);
           // console.log(this.state);
           const transactions = data.data;
+          console.log("console logging the return of post request in mainContainer.jsx :", transactions);
           // // transactions.push(data);
           this.setState({
             transactions: transactions,
             total: data.total
           });
-          document.location.reload();
+          // this is currently reloading the document because this.setState updates the state, but doesn't rerender the components
+          // document.location.reload();
         })
         .catch(err => console.log(err));
       }

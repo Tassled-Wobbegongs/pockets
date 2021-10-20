@@ -63,7 +63,7 @@ transactionController.getTotal = (req, res, next) => {
     let total = 0;
         
     transactions.forEach( obj => {
-        total += obj.amount;
+        total += parseFloat(obj.amount);
         
     })
 

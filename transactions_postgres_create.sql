@@ -15,6 +15,7 @@ CREATE TABLE public.transactions (
 	"amount" DECIMAL(19, 2) NOT NULL,
 	"date" varchar,
 	"category_id" bigint,
+	"user_id" bigint,
 	CONSTRAINT "transactions_pk" PRIMARY KEY ("_id")
 ) WITH (
   OIDS=FALSE
@@ -28,8 +29,20 @@ CREATE TABLE public.categories (
     OIDS=FALSE
 );
 
+CREATE TABLE public.users (
+	"_id" serial NOT NULL,
+	"username" varchar NOT NULL UNIQUE,
+	"firstName" varchar NOT NULL,
+	"lastName" varchar NOT NULL,
+	"budget" bigint,
+	CONSTRAINT "users_pk" PRIMARY KEY ("_id")
+) WITH (
+	OIDS=FALSE
+);
+
 
 ALTER TABLE public.transactions ADD CONSTRAINT "transactions_fk0" FOREIGN KEY ("category_id") REFERENCES public.categories("_id")
+ALTER TABLE public.transactions ADD CONSTRAINT "transctions_fk1" FOREIGN KEY ("user_id") REFERENCES public.users("_id")
 
 INSERT INTO public.categories VALUES (1, 'test');
 INSERT INTO public.categories VALUES (2, 'Housing/Rent');

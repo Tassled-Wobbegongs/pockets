@@ -80,15 +80,16 @@ class PieChart extends Component {
               ],
             }]
           })
-          console.log(this.state.data)
+          console.log('this.state.data', this.state.datasets[0].data);
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     }
 
-    render(){
-      //not sure why this works, copy pasta
+    componentDidMount() {
       this.getData();
+    }
 
+    render() {
       const plugins = [{
         beforeDraw: function(chart) {
          var width = chart.width,

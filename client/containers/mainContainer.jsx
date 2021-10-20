@@ -69,7 +69,7 @@ const MainContainer = props => {
         <div className = 'mainContainer'>
           <img src={logo} id="logo"/> 
           {/* For react hooks, we can pass state around the same as react, but without the "this" keyword */}
-          {/* submit */}
+          {/* handleSubmit has to be passed as an anon function... Adrian explained, I don't understand. Basically magic*/}
           <InputsContainer state={state} submit={() => handleSubmit}/> {/*Dont know if this is correct*/}
           {/* since "this" keyword is no longer needed, we can pass state and total without it(per below, we're passing it by only referencing state. transaction) */}
           <DisplayContainer transactions={state.transactions} total={state.total} />

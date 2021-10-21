@@ -9,27 +9,27 @@ import React, { useState, Component, useEffect } from 'react';
 //     }
 
 const FeedItem = (props) => {
-  const [transactions, setTransactions] = useState(props.transactions);
-  const [total, setTotal] = useState(props.total);
+  // const [transactions, setTransactions] = useState(props.transactions);
+  // const [total, setTotal] = useState(props.total);
 
   /*
 Using useEffect to replace componentDidUpdate
 Performs a GET request to our API, and updates the patch when there is new data, change the state
 to include the new data
 */
-  useEffect(() => {
-    // check if the state has changed
-    //if (props.transactions !== props.state.transactions) {
-    fetch('api/transactions')
-      .then((res) => res.json())
-      .then((res) => {
-        setTransactions(res.data);
-        setTotal(res.total);
-      })
-      .catch((err) => {
-        console.log('error fetching data in FeedItems.jsx: ', err);
-      });
-  }, []),
+  // useEffect(() => {
+  //   // check if the state has changed
+  //   //if (props.transactions !== props.state.transactions) {
+  //   fetch('api/transactions')
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setTransactions(res.data);
+  //       setTotal(res.total);
+  //     })
+  //     .catch((err) => {
+  //       console.log('error fetching data in FeedItems.jsx: ', err);
+  //     });
+  // }, []),
     // });
     // // calling a fetch request, then updating the state if there is a new transaction
     // componentDidUpdate(prevProps, prevState) {

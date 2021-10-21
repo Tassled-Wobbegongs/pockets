@@ -61,7 +61,7 @@ td {
 
 button {
   color: #aebab1;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-variant: small-caps;
   border-radius: 5px;
   border: 1px solid #3c5360;
@@ -145,16 +145,6 @@ button {
   border-radius: 5px;
   width: 200px;
   height: 24px;
-}
-
-input.close-btn {
-  display: flex;
-  font-weight: bold;
-  justify-content: center;
-  width: 2%;
-  padding: 8px;
-  border: none;
-  outline: none;
 }
 
 #category {
@@ -246,14 +236,14 @@ input.close-btn {
 }
 
 /* .transactionsDisplay {
-    height: 500px;
-    border: 1px solid black;
-    background-color:#E7E7E7;
-    padding: 50px;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    box-shadow: 5px 5px 5px #D0C3C3;
+  height: 500px;
+  border: 1px solid black;
+  background-color:#E7E7E7;
+  padding: 50px;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  box-shadow: 5px 5px 5px #D0C3C3;
 } */
 
 #chartContainer {
@@ -264,7 +254,7 @@ input.close-btn {
 }
 
 h1 {
-  font-family: 'Ephesis', cursive;
+  font-family: "Ephesis", cursive;
   font-size: 55px;
   color: #547386;
   margin: 12px;
@@ -296,7 +286,7 @@ nav a {
 }
 
 nav a {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   height: 40%;
   line-height: 40%;
   color: white;
@@ -324,7 +314,30 @@ div.popup {
 div.popup-inner {
   position: relative;
   padding: 32px;
-  width: 100%;
+  width: 50%;
   max-width: 640px;
   background-color: #fff;
+}
+
+button.submit-btn {
+  display: flex;
+  justify-content: center;
+}
+
+input.bgt-val {
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  outline: none;
+}
+
+input.close-btn {
+  display: flex;
+  font-weight: bold;
+  float: right;
+  width: 2%;
+  padding: 8px;
+  border: none;
+  outline: none;
+  background: transparent;
 }

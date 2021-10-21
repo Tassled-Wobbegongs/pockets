@@ -39,8 +39,27 @@ describe('/api/transaction', () => {
         .get(endpoint)
         .expect((res) => {
           typeof res.body.total === 'number';
-        })
+        });
     });
+  });
+
+  describe('POST', () => {
+    const testBody = {
+      "name": "Cat Snake POST Test 1",
+      "amount": "420.69",
+      "date": "2021/10/20",
+      "category_id": "2",
+    }
+
+    it('responds with 201 status', () => {
+      request(server)
+        .post(endpoint)
+        .send(testBody)
+        .expect(201);
+    });
+
+    // testBody.name = 
+    // it('')
   });
 
 });

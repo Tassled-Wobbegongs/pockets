@@ -19,7 +19,7 @@ const DisplayContainer = props => {
       <Total total={props.total} />
       <div id="chartContainer">
         <TotalsDisplay total={props.total}/>
-        <PieChart />
+        <PieChart total={props.total} transactions={props.transactions} />
       </div>
     </div>
   );

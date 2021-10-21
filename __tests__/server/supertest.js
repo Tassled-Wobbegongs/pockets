@@ -47,7 +47,7 @@ describe('/api/transactions', () => {
     const testBody = {
       name: "Cat Snake POST Tests",
       amount: 89.99,
-      date: "2021/10/20",
+      date: "10/21/2021",
       category_id: 2,
     }
     let idForDelete;
@@ -57,18 +57,16 @@ describe('/api/transactions', () => {
     afterEach(() => {
       request(server)
         .get(endpoint)
-        .then((res) => {
+        .end((err, res) => {
           const data = res.body.data;
-          idForDelete = data[data.length - 1]['_id'];
-        })
-        .catch((err) => console.log(err));
-    });
-
-    afterEach(() => {
-      request(server)
-        .delete(endpoint)
-        .send({id: idForDelete});
-    })
+          data.forEach((obj) => {
+            if (obj.name === testBody.name) idForDelete = obj._id;
+            request(server)
+              .del(endpoint)
+              .send({ id: idForDelete });
+          });
+        });
+      });
 
     describe('Postive Tests', () => {
       it('responds with 201 status', () => {
@@ -78,14 +76,14 @@ describe('/api/transactions', () => {
           .expect(201);
       });
 
-      xit('returns application/json content type', () => {
+      it('returns application/json content type', () => {
         return request(server)
           .post(endpoint)
           .send(testBody)
           .expect('Content-Type', /application\/json/);
       });
 
-      xit('response body includes new content', () => {
+      it('response body includes new content', () => {
         return request(server)
           .post(endpoint)
           .send(testBody)
@@ -96,7 +94,7 @@ describe('/api/transactions', () => {
       });
     });
     
-    xdescribe('Negative Tests', () => {
+    describe('Negative Tests', () => {
       it('amount must be a number', () => {
         testBody.amount = 'string';
         return request(server)

@@ -7,7 +7,7 @@ const transactionController = require('../controllers/transactionController');
 //for displaying totals for transactions/summary data
 router.get('/transactions', transactionController.getTransaction, transactionController.getTotal, (req, res) => {
     // console.log(res.locals);
-    res.status(201).json({ data: res.locals.data, total: res.locals.total});
+    res.status(200).json({ data: res.locals.data, total: res.locals.total});
 
     // getting error: Express error handler caught unknown middleware error
     // Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
@@ -17,11 +17,7 @@ router.get('/transactions', transactionController.getTransaction, transactionCon
 
 //on 'submit' add transaction to database
 router.post('/transactions', transactionController.addTransaction, transactionController.getTransaction, transactionController.getTotal, (req, res) => {
-    //if re-rendering entire page everytime we add transaction, need to add getTransaction middleware
-    //else if just updating that one thing, keep only addTransaction middleware (gives only single transaction)
-    //data is everything returned from the insert query to the DB
-    console.log(res.locals);
-    return res.status(200).json({ data: res.locals.data, total: res.locals.total});
+    return res.status(201).json({ data: res.locals.data, total: res.locals.total});
 });
 
 //on 'edit', find and update an existing transaction 

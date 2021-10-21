@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Popup from './Popup.jsx';
 
 const TotalsDisplay = props => {
@@ -6,25 +6,29 @@ const TotalsDisplay = props => {
   const [togglePopup, setTogglePop] = useState(false);
   const [budget, setBudget] = useState(0);
 
+  
+  const textInput = useRef(null);
+  
   const updateInput = e => {
     e.preventDefault();
-    setBudget(state => {
-      console.log('hi')
-      return {
-        state, [e.target.id]: e.target.value
-      };
-    })
+    setBudget(textInput.current.value)
   }
 
-  const handleBudget = () => {
-    fetch(`/api/users/${props.state._id}`, {
-      method: 'PUT'
-    }, setBudget)
-      .then(res => {
-        console.log('PUT user response: ', res);
-      })
+  useEffect(()=>{
+    fetch('/api/users/1')
       .then(res => res.json())
-      .then(res.setBudget({budget: res.budget}))
+      .then(res => { 
+        setBudget(Number(res[0].budget));})
+      .catch(err => console.log('ERROR:', err))
+  },[]);
+
+  const handleBudget = () => {
+    fetch('/api/users/1', {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({'budget': textInput.current.value})
+    })
+      .then(res => res.json())
       .catch(err => console.log('ERROR:', err))
   }
 
@@ -50,7 +54,7 @@ const TotalsDisplay = props => {
         <button className='editBgt' onClick={setTogglePop}>Edit Button</button>
       <Popup trigger={togglePopup} budget={budget} setTrigger={setTogglePop}>
       <div style={{marginTop: 10}}>
-      <input type='number' className='bgt-val' placeholder='Set Budget Here' value={budget} onChange={updateInput}/> <br/>
+      <input type='number' className='bgt-val' ref={textInput} placeholder='Set Budget Here' onChange={updateInput}/> <br/>
       <button className='submit-btn' onClick={() => {setTogglePop(false); handleBudget()}}>Submit</button> <br/>
       </div>
       </Popup>

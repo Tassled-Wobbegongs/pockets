@@ -24,12 +24,16 @@ const TotalsDisplay = props => {
           <br></br>
           <center>${Number(budget - props.total).toFixed(2)}</center>
         </div>
-        <input type='button' className='editBgt' id='editBgt' value='Edit Budget' onClick={setTogglePop}/>
-      <Popup trigger={togglePopup} setTrigger={setTogglePop}>
-
-      </Popup>
+        <button className='editBgt' onClick={setTogglePop}>Edit Button</button>
+      <Popup trigger={togglePopup} budget={budget} setTrigger={setTogglePop}/>
     </div>
   )
+}
+
+const style = {
+  marginTop: 10,
+  display: 'flex',
+  justifyContent: 'center'
 }
 
 

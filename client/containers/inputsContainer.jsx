@@ -36,9 +36,7 @@ const InputsContainer = props => {
       .catch(err => console.log(err));
     }
   };
-
-
-
+  
     //handler for submit
   const handleSubmit = event => {
     // event.preventDefault()

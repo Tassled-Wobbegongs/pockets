@@ -128,13 +128,14 @@ to include the new data
           <td className="item">{transactions[i].category}</td>
           <td className="item">${transactions[i].amount}</td>
           {/* cat-snake todo: all delete buttons should have unique ids */}
-          <button
+          <td className="item"><button
             className="delete"
             id="editButton"
             onClick={() => deleteItem(transactions[i])}
           >
             X
           </button>
+          </td>
         </tr>
       );
     }
@@ -149,10 +150,12 @@ to include the new data
         <span className="header">Transaction</span>
         <span className="header">Category</span>
         <span className="header">Amount</span>
+        <span className="header">Actions</span>
       </div>
       <div className="feedItem">
         <div className="transactionTable">
           <table className="transactions">
+            <tbody>
             {/* <tr className="row">
               <th className='item' id="itemHeader">Date</th>
               <th className='item' id="itemHeader">Transaction</th>
@@ -160,6 +163,7 @@ to include the new data
               <th className='item' id="itemHeader">Amount</th>
             </tr> */}
             {renderRows()}
+            </tbody>
           </table>
         </div>
       </div>

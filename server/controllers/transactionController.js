@@ -62,6 +62,8 @@ transactionController.deleteTransaction = (req, res, next) => {
         'DELETE FROM transactions \
         WHERE _id = $1';
     const params = [req.body.id];
+
+    console.log('req', req.body);
     
     db
         .query(deleteQuery, params)

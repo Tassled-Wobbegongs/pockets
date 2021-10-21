@@ -2,28 +2,6 @@ const path = require('path');
 const db = require('../models/transactionsModel')
 const transactionController = {};
 
-//middleware goes here to handle db queries
-
-
-//MIDDLEWARE TO ADD A TRANSACTION TO DB
-transactionController.addTransaction = (req, res, next) => {
-    //req.body is going to contain transaction name, amount, and category
-    const addTransQuery = 
-        'INSERT INTO public.transactions (name, amount, date, category_id) \
-        VALUES ($1, $2, $3, $4) RETURNING *'; 
-    const values = [req.body.name, req.body.amount, req.body.date, req.body.category_id];
-    
-
-    db.query(addTransQuery, values)
-        .then(data => {
-            return next();
-        })
-        .catch( err => {
-            console.log('query error', err);
-            return next(err);
-        });
-};
-
 //MIDDLEWARE FOR RETRIEVING TRANSACTION DATA FOR FRONTEND DISPLAY
 transactionController.getTransaction = (req, res, next) => {
     const getTransQuery = 
@@ -42,38 +20,60 @@ transactionController.getTransaction = (req, res, next) => {
         });
 };
 
-//MIDDLEWARE FOR DELETING A TRANSACTION
-transactionController.deleteTransaction = (req, res, next) => {
-    const deleteQuery = 
-        'DELETE FROM transactions \
-        WHERE _id = $1';
-    const params = [req.body.id];
-    
-    db.query(deleteQuery, params)
+//MIDDLEWARE TO ADD A TRANSACTION TO DB
+transactionController.addTransaction = (req, res, next) => {
+    const addTransQuery = 
+        'INSERT INTO public.transactions (name, amount, date, category_id) \
+        VALUES ($1, $2, $3, $4) RETURNING *'; 
+    const values = [
+        req.body.name,
+        req.body.amount,
+        req.body.date,
+        req.body.category_id
+    ];
+
+    db
+        .query(addTransQuery, values)
         .then(data => {
             return next();
         })
-            .catch(err => {
-            console.log('delete error', err);
+        .catch( err => {
+            console.log('query error', err);
             return next(err);
         });
 };
 
 //MIDDLEWARE FOR CALCULATING RUNNING TOTAL OF TRANSACTIONS
 transactionController.getTotal = (req, res, next) => {
-    //res.locals.data should have all our transactions
     const transactions = res.locals.data;
     let total = 0;
         
     transactions.forEach( obj => {
         total += parseFloat(obj.amount);
-        
     })
 
     res.locals.total = total;
     return next();
 };
 
+//MIDDLEWARE FOR DELETING A TRANSACTION
+transactionController.deleteTransaction = (req, res, next) => {
+    const deleteQuery = 
+        'DELETE FROM transactions \
+        WHERE _id = $1';
+    const params = [req.body.id];
 
+    console.log('req', req.body);
+    
+    db
+        .query(deleteQuery, params)
+        .then(data => {
+            return next();
+        })
+        .catch(err => {
+            console.log('delete error', err);
+            return next(err);
+        });
+};
 
 module.exports = transactionController;

@@ -40,7 +40,7 @@ router.get('/users/:id',
 	}
 );
 
-router.put('/budget/:id',
+router.put('/users/:id',
 	transactionController.updateBudget,
 	(req, res) => {
 		return res.status(200).json(res.locals.user);

@@ -5,7 +5,7 @@ const Total = props => {
    
   return (
     <div className = "total">
-        Total: ${props.total}
+        Total: ${props.total.toFixed(2)}
     </div>
   )
 }

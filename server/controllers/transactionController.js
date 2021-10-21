@@ -91,7 +91,7 @@ transactionController.updateBudget = (req, res, next) => {
 	//res.locals.data should have all our transactions
 	db.query('UPDATE users SET budget= $1 WHERE users._id=$2', [req.body.budget, req.params.id])
 		.then( user => {
-			console.log(user);
+			console.log('USER FROM UPDATEBUDGET MIDDLEWAR = ', user);
 			res.locals.user = user;
 			next();
 		})

@@ -29,10 +29,12 @@ const InputsContainer = props => {
       // jsonifies the response from the server
       .then(response => response.json())
       // takes the jsonified result and uses it to change the state
-      .then((result) => props.setState({
-        transactions: result.transactions, 
-        total: result.total
-      }))
+      .then((result) => {
+          props.setState({
+            transactions: result.data, 
+            total: result.total
+          });
+      })
       .catch(err => console.log(err));
     }
   };
@@ -48,9 +50,9 @@ const InputsContainer = props => {
       <h3></h3>
       <input type="text" className='input' id="transactionName" placeholder='Transaction'/>
       <input type="text" className='input' id="transactionAmt" placeholder='Amount'/>
-      <select name="Category" className='input' id="category">
+      <select name="Category" className='input' defaultValue="1" id="category">
         {/* <option value="1">test</option> */}
-        <option disabled selected value="1">Choose Category</option>
+        <option disabled value="1">Choose Category</option>
         <option value="2">Housing/Rent</option>
         <option value="3">Utilities</option>
         <option value="4">Gas</option>

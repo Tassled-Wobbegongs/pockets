@@ -61,7 +61,7 @@ td {
 
 button {
   color: #aebab1;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-variant: small-caps;
   border-radius: 5px;
   border: 1px solid #3c5360;
@@ -137,7 +137,6 @@ button {
   border-radius: 5px;
   width: 30px;
   height: 20px;
-  position: absolute;
   right: 100px;
 }
 
@@ -255,7 +254,7 @@ button {
 }
 
 h1 {
-  font-family: 'Ephesis', cursive;
+  font-family: "Ephesis", cursive;
   font-size: 55px;
   color: #547386;
   margin: 12px;
@@ -287,7 +286,7 @@ nav a {
 }
 
 nav a {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   height: 40%;
   line-height: 40%;
   color: white;

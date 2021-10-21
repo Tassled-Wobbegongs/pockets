@@ -57,18 +57,17 @@ describe('/api/transactions', () => {
     afterEach(() => {
       request(server)
         .get(endpoint)
-        .then((res) => {
+        .end((err, res) => {
           const data = res.body.data;
-          idForDelete = data[data.length - 1]['_id'];
-        })
-        .catch((err) => console.log(err));
-    });
-
-    afterEach(() => {
-      request(server)
-        .delete(endpoint)
-        .send({id: idForDelete});
-    })
+          data.forEach((obj) => {
+            if (obj.name === testBody.name) idForDelete = obj._id;
+            console.log('idForDelete', idForDelete);
+            request(server)
+              .del(endpoint)
+              .send({ id: idForDelete });
+          });
+        });
+      });
 
     describe('Postive Tests', () => {
       it('responds with 201 status', () => {

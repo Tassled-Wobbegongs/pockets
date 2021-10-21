@@ -4,11 +4,11 @@ const NavBar = () => {
   //handling button click for login
   const handleLogin = () => {
     console.log('yayyy logging in');
-    fetch('', {
-      method: 'POST',
-      //within body, am I pushing this in the format of how our database is set up?
-      body: JSON.stringify({}),
-    });
+    // fetch('', {
+    //   method: 'POST',
+    //   //within body, am I pushing this in the format of how our database is set up?
+    //   body: JSON.stringify({}),
+    // });
   };
 
   //handling button click for logout
@@ -20,16 +20,16 @@ const NavBar = () => {
   const handleSignup = () => {
     console.log('going into signup');
   };
-
+  // nvm let's go back to the room but let's call michael in here
   return (
     <div>
-      <button className="log" onClick={handleLogin}>
+      <button className="login" onClick={handleLogin}>
         Login
       </button>
-      <button className="log" onClick={handleLogout}>
+      <button className="logout" onClick={handleLogout}>
         Log Out
       </button>
-      <button className="log" onClick={handleSignup}>
+      <button className="signup" onClick={handleSignup}>
         Signup
       </button>
     </div>

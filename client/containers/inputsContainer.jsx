@@ -1,22 +1,49 @@
 import React, { useState } from 'react';
 // import DisplayContainer from './displayContainer.jsx';
 
-// class InputsContainer extends Component {
-//     constructor(props){
-//       super(props);
-//       this.state = {
-//         // transactions: this.props.transactions,
-//         // total: this.props.total,
-//         // name: this.props.name,
-//         // amount: this.props.amount,
-//         // category: this.props.category
-//       }
-//     }
 
 const InputsContainer = props => {
   // whatever we want in the state
   // console.log("logging props property in inputsContainer: ", props.submit)
-  const [submit, setSubmit] = useState(props.submit);
+
+
+  //handle change function
+  const submitData = () => {
+    console.log('submit activated')
+    // checks to see if a category has be selected (i.e. not "Choose Category") before submitting the post request
+    if (document.getElementById('category').value !== '1') {
+      // sends  fetch request to backend API to create a new transaction
+      fetch('/api/transactions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        // jsonifies the body of our request so the server can respond
+        body: JSON.stringify({
+          date: new Date().toLocaleDateString(),
+          name: document.getElementById('transactionName').value,
+          category_id: document.getElementById('category').value,
+          amount: document.getElementById('transactionAmt').value
+        })
+      })
+      // jsonifies the response from the server
+      .then(response => response.json())
+      // takes the jsonified result and uses it to change the state
+      .then((result) => props.setState({
+        transactions: result.transactions, 
+        total: result.total
+      }))
+      .catch(err => console.log(err));
+    }
+  };
+
+
+
+    //handler for submit
+  const handleSubmit = event => {
+    // event.preventDefault()
+    submitData() //Saves data when inputs are submitted
+  }
 
   return (
     <div className = 'inputContainer'>
@@ -36,7 +63,7 @@ const InputsContainer = props => {
         <option value="9">Savings</option>
         <option value="10">Other</option>
       </select>
-      <button onClick={submit} id="submitButton">Add Transaction</button>
+      <button onClick={handleSubmit} id="submitButton">Add Transaction</button>
     </div>
   );
 }

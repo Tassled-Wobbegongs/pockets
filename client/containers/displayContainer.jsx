@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
-import InputsDisplay from '../components/inputsDisplay.jsx';
-import TotalsDisplay from '../components/totalsDisplay.jsx';
+import InputsDisplay from '../components/InputsDisplay.jsx';
+import TotalsDisplay from '../components/TotalsDisplay.jsx';
 import PieChart from '../components/pieChart.jsx';
-import Total from '../components/total.jsx';
+import Total from '../components/Total.jsx';
 
 
 
 const DisplayContainer = props => {
-    // constructor(props){
-    //   super(props);
-    //   this.state = {
-    //     transactions: this.props.transactions,
-    //     total: this.props.total
-    //   };
-  const [transactions, setTransactions] = useState(props.transactions);
-  const [total, setTotal] = useState(props.total);
-  
+
   // automatically render the month using the Date function
   const date = new Date();
   const month = date.toLocaleString('default', { month: 'long' })
@@ -23,10 +15,10 @@ const DisplayContainer = props => {
   return (
     <div className = "displayContainer">
       <h3>{month}'s Spending:</h3>
-      <InputsDisplay transactions={transactions} total={total} />
-      <Total />
+      <InputsDisplay transactions={props.transactions} total={props.total} />
+      <Total total={props.total} />
       <div id="chartContainer">
-        <TotalsDisplay total={total}/>
+        <TotalsDisplay total={props.total}/>
         <PieChart />
       </div>
     </div>

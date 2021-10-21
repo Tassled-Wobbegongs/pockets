@@ -7,9 +7,8 @@ router.get('/',
     transactionController.getTransaction,
     transactionController.getTotal,
     (req, res) => {
-        res
+        return res
             .status(200)
-            .setHeader('application/json')
             .json({
                 data: res.locals.data,
                 total: res.locals.total
@@ -22,9 +21,8 @@ router.post('/',
     transactionController.getTransaction,
     transactionController.getTotal,
     (req, res) => {
-        res
+        return res
             .status(201)
-            .setHeader('application/json')
             .json({ 
                 data: res.locals.data,
                 total: res.locals.total
@@ -41,7 +39,7 @@ router.delete('/',
     transactionController.deleteTransaction,
     transactionController.getTransaction,
     (req, res) => {
-        res.sendStatus(200);
+        return res.sendStatus(200);
 });
 
 

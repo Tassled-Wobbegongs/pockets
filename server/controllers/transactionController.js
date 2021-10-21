@@ -32,7 +32,8 @@ transactionController.addTransaction = (req, res, next) => {
         req.body.category_id
     ];
 
-    db.query(addTransQuery, values)
+    db
+        .query(addTransQuery, values)
         .then(data => {
             return next();
         })
@@ -62,11 +63,12 @@ transactionController.deleteTransaction = (req, res, next) => {
         WHERE _id = $1';
     const params = [req.body.id];
     
-    db.query(deleteQuery, params)
+    db
+        .query(deleteQuery, params)
         .then(data => {
             return next();
         })
-            .catch(err => {
+        .catch(err => {
             console.log('delete error', err);
             return next(err);
         });

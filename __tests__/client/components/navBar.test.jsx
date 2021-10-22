@@ -11,12 +11,26 @@ and expecting the console logged messages as a return
  * @jest-environment jsdom
  */
 
-it('login button click triggers console log message', () => {
-  render(<Navbar />);
-  // rn this isn't emulating a click just yet
-  // we want to emulate a user click, and then expect the appropriate return from the console.log
-  // this will look for a button/component called "Login" then click it
-  fireEvent.click(screen.getByText('Login'));
-  // expect(screen.getByLabelText('yayyy logging in'));
-  expect(handleLogin).toHaveBeenCalled;
+const handleLogin = () => console.log('yayyy logging in');
+const handleLogout = () => console.log('yayyyy logging out');
+const handleSignup = () => console.log('going into signup');
+
+describe('testing buttons on navbar', () => {
+  it('login button click triggers console log message', () => {
+    render(<Navbar />);
+    fireEvent.click(screen.getByText('Login'));
+    expect(handleLogin).toHaveBeenCalled;
+  });
+
+  it('logout button click triggers console log message', () => {
+    render(<Navbar />);
+    fireEvent.click(screen.getByText('Log Out'));
+    expect(handleLogout).toHaveBeenCalled;
+  });
+
+  it('signup button click triggers console log message', () => {
+    render(<Navbar />);
+    fireEvent.click(screen.getByText('Signup'));
+    expect(handleSignup).toHaveBeenCalled;
+  });
 });

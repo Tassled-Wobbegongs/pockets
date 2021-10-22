@@ -32,6 +32,7 @@ CREATE TABLE public.categories (
 CREATE TABLE public.users (
 	"_id" serial NOT NULL,
 	"username" varchar NOT NULL UNIQUE,
+	"password" varchar NOT NULL,
 	"firstName" varchar NOT NULL,
 	"lastName" varchar NOT NULL,
 	"budget" bigint,
@@ -40,9 +41,10 @@ CREATE TABLE public.users (
 	OIDS=FALSE
 );
 
+INSERT INTO public.users VALUES (1, 'admin', 'password123', 'Cat', 'Snakes', 5000);
+
 
 ALTER TABLE public.transactions ADD CONSTRAINT "transactions_fk0" FOREIGN KEY ("category_id") REFERENCES public.categories("_id");
-
 ALTER TABLE public.transactions ADD CONSTRAINT "transctions_fk1" FOREIGN KEY ("user_id") REFERENCES public.users("_id");
 
 INSERT INTO public.categories VALUES (1, 'test');
